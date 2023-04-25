@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+          charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/content/bootstrap.css")" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="page-header bg-danger">
+                <h1>
+                    Desenvolvimento em ASP.NET MVC
+                    <small class="text-danger">
+                        Utilizando o Bootstrap
+                    </small>
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3 col-md-3 bg-success">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation" class="active"><a href="#">Home</a></li>
+                    <li role="presentation">
+                        @Html.ActionLink("Categorias", "Index", "Categorias")
+                    </li>
+                    <li role="presentation">
+                        @Html.ActionLink("Fabricantes", "Index", "Fabricantes")
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-9 col-md-9">
+                <br />
+                @RenderBody()
+            </div>
+        </div> <br />
+        <div class="row">
+            <div class="col-xs-12 col-md-12 bg-danger">
+                <small>Layout com Bootstrap</small>
+            </div>
+        </div>
+    </div>
+    <script src="@Url.Content("~/scripts/jquery-1.10.2.js")"></script>
+    <script src="@Url.Content("~/scripts/bootstrap.js")"></script>
+</body>
+</html>
