@@ -4,6 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Listagem de FABRICANTES";
 }
+@if (@TempData["Message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Message"]
+    </div>
+}
 <div class="panel panel-primary">
     <div class="panel-heading">
         Relação de FABRICANTES registrados
@@ -59,6 +65,10 @@
                     "order": [[1, "asc"]]
                 }
             );
+        });
+        $(document).ready(function () {
+            $('li').removeClass("active");
+            $('#liFabricantes').addClass("active");
         });
     </script>
 }
