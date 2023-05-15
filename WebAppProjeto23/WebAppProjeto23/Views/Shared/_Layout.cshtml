@@ -22,7 +22,9 @@
         <div class="row">
             <div class="col-xs-3 col-md-3 bg-success">
                 <ul class="nav nav-pills nav-stacked">
-                    <li id="liHome" role="presentation" class="active"><a href="#">Home</a></li>
+                    <li id="liHome" role="presentation" class="active">
+                        @Html.ActionLink("Home", "Index", "Home")
+                    </li>
                     <li id="liCategorias" role="presentation">
                         @Html.ActionLink("Categorias", "Index", "Categorias")
                     </li>

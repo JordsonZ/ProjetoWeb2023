@@ -1,0 +1,63 @@
+﻿@model WebAppProjeto23.Models.Home
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home";
+}
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                Fabricantes
+            </th>
+        </tr>
+        <tr>
+            @foreach (var item in Model.fabricantes)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome);
+                </td>
+            }
+        </tr>
+    </table>
+</div>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                Categorias
+            </th>
+        </tr>
+        <tr>
+            @foreach (var item in Model.categorias)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome);
+                </td>
+            }
+        </tr>
+    </table>
+</div>
+@section styles{
+    <link href="@Url.Content("~/content/DataTables-1.10.2/css/dataTables.bootstrap.css")" rel="stylesheet" />
+}
+@section ScriptPage{
+    <script src="@Url.Content("~/scripts/DataTables-1.10.2/jquery.dataTables.js")"></script>
+    <script src="@Url.Content("~/scripts/DataTables-1.10.2/dataTables.bootstrap.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.table').dataTable(
+                {
+                    "order": [[1, "asc"]]
+                }
+            );
+        });
+        $(document).ready(function () {
+            $('li').removeClass("active");
+            $('#liHome').addClass("active");
+        });
+    </script>
+}
+
