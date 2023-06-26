@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -95,7 +96,23 @@ namespace WebAppProjeto23.Controllers
             logotipo.InputStream.Read(bytesLogotipo, 0, logotipo.ContentLength);
             return bytesLogotipo;
         }
-
+        public FileContentResult GetLogotipo2(long id)
+        {
+            Produto produto = ObterProdutoPorId(id);
+            if (produto != null)
+            {
+                if (produto.NomeArquivo != null)
+                {
+                    var bytesLogotipo = new byte[produto.TamanhoArquivo];
+                    FileStream fileStream = new
+                    FileStream(Server.MapPath("~/App_Data/" + produto.NomeArquivo), FileMode.Open,
+                    FileAccess.Read);
+                    fileStream.Read(bytesLogotipo, 0, (int)produto.TamanhoArquivo);
+                    return File(bytesLogotipo, produto.LogotipoMimeType);
+                }
+            }
+            return null;
+        }
         public void GravarProduto(Produto produto)
         {
             if (produto.ProdutoId == null)
@@ -123,6 +140,10 @@ namespace WebAppProjeto23.Controllers
                     {
                         produto.LogotipoMimeType = logotipo.ContentType;
                         produto.Logotipo = SetLogotipo(logotipo);
+                        produto.NomeArquivo = logotipo.FileName;
+                        produto.TamanhoArquivo = logotipo.ContentLength;
+                        string strFileName = Server.MapPath("~/App_Data/") + Path.GetFileName(logotipo.FileName);
+                        logotipo.SaveAs(strFileName);
                     }
                     //produtoServico.GravarProduto(produto);
                     GravarProduto(produto);
@@ -137,7 +158,24 @@ namespace WebAppProjeto23.Controllers
                 return View(produto);
             }
         }
+        public ActionResult DownloadArquivo(long id)
+        {
+            //Produto produto = produtoServico.ObterProdutoPorId(id);
+            Produto produto = ObterProdutoPorId(id);
+            FileStream fileStream = new FileStream(Server.MapPath("~/App_Data/" + produto.NomeArquivo), FileMode.Create,FileAccess.Write);
+            fileStream.Write(produto.Logotipo, 0,Convert.ToInt32(produto.TamanhoArquivo));
+            fileStream.Close();
+            return File(fileStream.Name, produto.LogotipoMimeType, produto.NomeArquivo);
+        }
+        public ActionResult DownloadArquivo2(long id)
+        {
 
+            Produto produto = ObterProdutoPorId(id);
+            FileStream fileStream = new FileStream(Server.MapPath("~/App_Data/" +
+            produto.NomeArquivo), FileMode.Open, FileAccess.Read);
+            return File(fileStream.Name, produto.LogotipoMimeType, produto.NomeArquivo);
+
+        }
         // POST: Produtos/Edit/5
         [HttpPost]
         public ActionResult Edit(Produto produto, HttpPostedFileBase logotipo = null, string chkRemoverImagem = null)
