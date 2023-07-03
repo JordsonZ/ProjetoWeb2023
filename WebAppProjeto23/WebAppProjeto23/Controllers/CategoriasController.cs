@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo.Tabelas;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebAppProjeto23.Models;
+// using Modelo.Tabela
 
 namespace WebAppProjeto23.Controllers
 {

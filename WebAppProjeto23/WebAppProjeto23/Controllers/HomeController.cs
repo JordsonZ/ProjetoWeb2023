@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebAppProjeto23.Models;
+using Modelo.Tabelas;
+using Modelo.Cadastros;
 
 namespace WebAppProjeto23.Controllers
 {

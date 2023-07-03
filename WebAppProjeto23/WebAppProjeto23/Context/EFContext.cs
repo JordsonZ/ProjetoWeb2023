@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Modelo.Cadastros;
+using Modelo.Tabelas;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
