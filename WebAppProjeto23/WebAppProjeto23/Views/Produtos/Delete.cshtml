@@ -1,4 +1,5 @@
-﻿@model Modelo.Cadastros.Produto
+﻿﻿@model Modelo.Cadastros.Produto
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Visualizando detalhes do PRODUTO a ser removido";
@@ -8,48 +9,10 @@
         Visualizando detalhes do PRODUTO a ser removido
     </div>
     <div class="panel-body">
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nome)<br />
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-user"></i>
-                </span>
-                @Html.EditorFor(model => model.Nome, new
-                {
-                    htmlAttributes =
-                new { @class = "form-control", disabled = "disabled" }
-                })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Categoria.Nome)<br />
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-user"></i>
-                </span>
-                @Html.EditorFor(model => model.Categoria.Nome, new
-                {
-                    htmlAttributes =
-                new { @class = "form-control", disabled = "disabled" }
-                })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Fabricante.Nome)<br />
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-user"></i>
-                </span>
-                @Html.EditorFor(model => model.Fabricante.Nome, new
-                {
-                    htmlAttributes =
-                new { @class = "form-control", disabled = "disabled" }
-                })
-            </div>
-        </div>
+        @Html.Partial("~/Views/Produtos/_PartialDetailsContentPanel.cshtml", Model)
     </div>
     <div class="panel-footer panel-info">
-        <a href="#" class="btn btn-info" data-toggle="modal"
+        <a href="#" class="btn btn-danger" data-toggle="modal"
            data-target="#deleteConfirmationModal">Remover</a>
         @Html.ActionLink("Retornar para a listagem", "Index", null, new { @class = "btn btn-info" })
     </div>
@@ -82,7 +45,7 @@
                 }
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" onclick="$('#delete-form').submit();">
+                <button type="button" class="btn btn-danger" onclick="$('#delete-form').submit();">
                     Sim, exclua este produto.
                 </button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal">

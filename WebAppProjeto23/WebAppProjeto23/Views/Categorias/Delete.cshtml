@@ -1,4 +1,4 @@
-﻿@model Modelo.Tabelas.Categoria
+﻿﻿@model Modelo.Tabelas.Categoria
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,23 +6,10 @@
 }
 <div class="panel panel-primary">
     <div class="panel-heading">
-        Dados da categoria a ser removido
+        Dados da categoria a ser removida
     </div>
     <div class="panel-body">
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nome)<br />
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-user">
-                    </i>
-                </span>
-                @Html.EditorFor(model => model.Nome, new
-                {
-                    htmlAttributes =
-                new { @class = "form-control", disabled = "disabled" }
-                })
-            </div>
-        </div>
+        @Html.Partial("~/Views/Categorias/_PartialDetailsContentPanel.cshtml", Model)
     </div>
     <div class="panel-footer panel-info">
         @using (Html.BeginForm())
@@ -34,4 +21,3 @@
         }
     </div>
 </div>
-

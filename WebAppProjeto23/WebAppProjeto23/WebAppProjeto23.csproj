@@ -235,6 +235,9 @@
     <Content Include="Views\Produtos\Delete.cshtml" />
     <Content Include="Views\Produtos\_PorFabricante.cshtml" />
     <Content Include="Views\Produtos\_PorCategoria.cshtml" />
+    <Content Include="Views\Produtos\_PartialDetailsContentPanel.cshtml" />
+    <Content Include="Views\Fabricantes\_PartialDetailsContentPanel.cshtml" />
+    <Content Include="Views\Categorias\_PartialDetailsContentPanel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -253,6 +256,10 @@
     <ProjectReference Include="..\Persistencia\Persistencia.csproj">
       <Project>{e239ef3b-9e24-4847-80c0-27469412821e}</Project>
       <Name>Persistencia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Servico\Servico.csproj">
+      <Project>{D51E49E9-47A5-4F91-9760-E2C41AC89557}</Project>
+      <Name>Servico</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
