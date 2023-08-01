@@ -1,12 +1,13 @@
-﻿using Modelo.Tabelas;
-using Servico.Tabelas;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Modelo.Tabelas;
+using Modelo.Cadastros;
+using Servico.Tabelas;
 using WebAppProjeto23.Models;
 // using Modelo.Tabela
 
@@ -20,8 +21,7 @@ namespace WebAppProjeto23.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(
-                HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Categoria categoria = categoriaServico.ObterCategoriaPorId((long)id);
             if (categoria == null)
