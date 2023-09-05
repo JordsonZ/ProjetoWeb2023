@@ -32,8 +32,8 @@
                         @Html.ActionLink("Fabricantes", "Index", "Fabricantes")
                     </li>
                     <li id="liProdutos" role="presentation">
-                        @Html.ActionLink("Produtos", "Index","Produtos")
-                </li>
+                        @Html.ActionLink("Produtos", "Index", "Produtos")
+                    </li>
                 </ul>
             </div>
             <div class="col-xs-9 col-md-9">
@@ -49,6 +49,10 @@
     </div>
     <script src="@Url.Content("~/scripts/jquery-2.2.4.js")"></script>
     <script src="@Url.Content("~/scripts/bootstrap.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-2.2.4.validate.js")">
+    </script>
+    <script src="@Url.Content("~/Scripts/jquery-2.2.4.validate.unobtrusive.js")">
+    </script>
     @RenderSection("ScriptPage", false);
 </body>
 </html>

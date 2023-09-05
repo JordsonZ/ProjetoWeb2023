@@ -119,7 +119,7 @@ namespace WebAppProjeto23.Controllers
             logotipo.InputStream.Read(bytesLogotipo, 0, logotipo.ContentLength);
             return bytesLogotipo;
         }
-        public FileContentResult GetLogotipo2(long id)
+        public FileContentResult GetLogotipo(long id)
         {
             Produto produto = produtoServico.ObterProdutoPorId(id);
             if (produto != null)
@@ -145,10 +145,12 @@ namespace WebAppProjeto23.Controllers
                     produtoServico.GravarProduto(produto);
                     return RedirectToAction("Index");
                 }
+                PopularViewBag();
                 return View(produto);
             }
             catch
             {
+                PopularViewBag();
                 return View(produto);
             }
         }
@@ -226,7 +228,7 @@ namespace WebAppProjeto23.Controllers
         }
   
 
-        public FileContentResult GetLogotipo(long id)
+       /* public FileContentResult GetLogotipo(long id)
         {
             Produto produto = produtoServico.ObterProdutoPorId(id);
             if (produto != null)
@@ -234,7 +236,7 @@ namespace WebAppProjeto23.Controllers
                 return File(produto.Logotipo, produto.LogotipoMimeType);
             }
             return null;
-        }
+        }*/
 
         // GET: Produtos/Delete/5
         public ActionResult Delete(long? id)
