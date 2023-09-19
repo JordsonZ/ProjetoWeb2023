@@ -11,7 +11,7 @@ using Servico.Tabelas;
 using WebAppProjeto23.Models;
 // using Modelo.Tabela
 
-namespace WebAppProjeto23.Controllers
+namespace WebAppProjeto23.Areas.Tabelas.Controllers
 {
     public class CategoriasController : Controller
     {

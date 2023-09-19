@@ -11,7 +11,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppProjeto23.Models;
 
-namespace WebAppProjeto23.Controllers
+namespace WebAppProjeto23.Areas.Cadastros.Controllers
 {
     public class ProdutosController : Controller
     {
@@ -119,7 +119,7 @@ namespace WebAppProjeto23.Controllers
             logotipo.InputStream.Read(bytesLogotipo, 0, logotipo.ContentLength);
             return bytesLogotipo;
         }
-        public FileContentResult GetLogotipo(long id)
+        public FileContentResult GetLogotipo1(long id)
         {
             Produto produto = produtoServico.ObterProdutoPorId(id);
             if (produto != null)
@@ -226,17 +226,21 @@ namespace WebAppProjeto23.Controllers
             }
             */
         }
-  
 
-       /* public FileContentResult GetLogotipo(long id)
+
+        public FileContentResult GetLogotipo(long id)
         {
             Produto produto = produtoServico.ObterProdutoPorId(id);
             if (produto != null)
             {
-                return File(produto.Logotipo, produto.LogotipoMimeType);
+                if (produto.LogotipoMimeType != null)
+                {
+                    return File(produto.Logotipo, produto.LogotipoMimeType);
+
+                }
             }
             return null;
-        }*/
+        }
 
         // GET: Produtos/Delete/5
         public ActionResult Delete(long? id)
