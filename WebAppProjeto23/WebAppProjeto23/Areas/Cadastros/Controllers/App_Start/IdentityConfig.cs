@@ -9,7 +9,7 @@ using System.Web;
 using WebAppProjeto23.DAL;
 using WebAppProjeto23.Infraestrutura;
 
-namespace WebAppProjeto23.App_Start
+namespace WebAppProjeto23
 {
     public class IdentityConfig
     {

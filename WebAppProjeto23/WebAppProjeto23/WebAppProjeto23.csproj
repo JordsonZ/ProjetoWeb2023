@@ -222,6 +222,10 @@
     <Content Include="Areas\Tabelas\Views\Categorias\Delete.cshtml" />
     <Content Include="Areas\Tabelas\Views\Categorias\_PartialDetailsContentPanel.cshtml" />
     <Content Include="Areas\Seguranca\Views\web.config" />
+    <Content Include="Areas\Seguranca\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Seguranca\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Seguranca\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Seguranca\Views\Admin\Create.cshtml" />
     <None Include="Scripts\jquery-2.2.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -267,10 +271,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="Areas\Cadastros\Controllers\App_Start\IdentityConfig.cs" />
     <Compile Include="Areas\Cadastros\Controllers\App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Cadastros\CadastrosAreaRegistration.cs" />
     <Compile Include="Areas\Seguranca\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Seguranca\Data\SegurancaViewModels.cs" />
     <Compile Include="Areas\Seguranca\Data\Usuario.cs" />
     <Compile Include="Areas\Seguranca\SegurancaAreaRegistration.cs" />
     <Compile Include="Areas\Tabelas\TabelasAreaRegistration.cs" />
@@ -329,8 +334,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Cadastros\Data\" />
-    <Folder Include="Areas\Seguranca\Views\Admin\" />
-    <Folder Include="Areas\Seguranca\Views\Shared\" />
     <Folder Include="Areas\Tabelas\Data\" />
   </ItemGroup>
   <ItemGroup>
